@@ -1,7 +1,7 @@
 ﻿
 namespace Mach
 {
-    partial class Form1
+    partial class frmContratos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,34 @@ namespace Mach
         /// </summary>
         private void InitializeComponent()
         {
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // Form1
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(138, 57);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(865, 553);
+            this.textBox1.TabIndex = 0;
+            // 
+            // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 870);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1228, 732);
+            this.Controls.Add(this.textBox1);
+            this.Name = "frmContratos";
+            this.Text = "frmContratos";
+            this.Load += new System.EventHandler(this.frmContratos_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
-
