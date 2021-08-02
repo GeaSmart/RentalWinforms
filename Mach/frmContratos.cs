@@ -1,5 +1,6 @@
 ﻿using Mach.Entities;
 using Mach.Shared;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,8 +22,7 @@ namespace Mach
 
         private async void frmContratos_Load(object sender, EventArgs e)
         {
-            var response = await ApiHelper.GetAll();
-            this.textBox1.Text = ApiHelper.BeautifyJson(response);
+
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -57,6 +57,27 @@ namespace Mach
         private async void button3_Click(object sender, EventArgs e)
         {
             var response = await ApiHelper.Delete(1002);
+        }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            var response = await ApiHelper.GetAll();
+            this.textBox1.Text = ApiHelper.BeautifyJson(response);
+        }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            var response = await ApiHelper.Get(1);
+            this.textBox1.Text = ApiHelper.BeautifyJson(response);
+        }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            var response = await ApiHelper.GetAll();
+            var listado = JsonConvert.DeserializeObject<List<Contrato>>(response);
+
+            this.dataGridView1.DataSource = listado;
+
         }
     }
 }

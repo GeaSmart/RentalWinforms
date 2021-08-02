@@ -77,6 +77,7 @@ namespace Mach.Shared
                 using (HttpResponseMessage res = await client.PutAsync(baseURL + $"/{id}",bytecontent))
                 {
                     using (HttpContent content = res.Content)
+
                     {
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
