@@ -1,4 +1,5 @@
-﻿using Mach.Shared;
+﻿using Mach.Entities;
+using Mach.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,42 @@ namespace Mach
 
         private async void frmContratos_Load(object sender, EventArgs e)
         {
-            var response = await ApiHelper.Get(3);
+            var response = await ApiHelper.GetAll();
             this.textBox1.Text = ApiHelper.BeautifyJson(response);
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            Contrato miContrato = new Contrato()
+            {
+                FechaInicio = new DateTime(2020, 1, 1),
+                FechaFin = new DateTime(2020, 02, 02),
+                IsCombustible = true,
+                IsTransporte = true,
+                Observaciones = "ninguna observacion"
+            };
+
+            var response = await ApiHelper.Post(miContrato);
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            Contrato miContrato = new Contrato()
+            {
+                Id = 1002,
+                FechaInicio = new DateTime(2020, 1, 1),
+                FechaFin = new DateTime(2020, 02, 02),
+                IsCombustible = true,
+                IsTransporte = true,
+                Observaciones = "alguna observacion"
+            };
+
+            var response = await ApiHelper.Put(1002, miContrato);
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            var response = await ApiHelper.Delete(1002);
         }
     }
 }
