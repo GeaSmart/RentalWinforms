@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Mach
 {
-    public partial class frmContratos : Form
+    public partial class frmContratosTest : Form
     {
-        public frmContratos()
+        public frmContratosTest()
         {
             InitializeComponent();
         }

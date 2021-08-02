@@ -1,7 +1,7 @@
 ﻿
 namespace Mach
 {
-    partial class frmContratos
+    partial class frmContratosTest
     {
         /// <summary>
         /// Required designer variable.
