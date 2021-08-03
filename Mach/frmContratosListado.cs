@@ -22,10 +22,21 @@ namespace Mach
 
         private async void frmContratosListado_Load(object sender, EventArgs e)
         {
-            var response = await ApiHelper.GetAll();
-            var listado = JsonConvert.DeserializeObject<List<Contrato>>(response);
+            //List<Contrato> listado = new List<Contrato>();
+            //Reply oReply = new Reply();
+            //ApiHelper o = new ApiHelper();
+            //oReply = await o.Execute<List<Contrato>>("https://localhost:44329/api/contrato", ApiHelper.methodHttp.GET, listado);
 
-            this.dgvListadoContratos.DataSource = listado;
+            //this.dgvListadoContratos.DataSource = oReply.Data;
+            //MessageBox.Show(oReply.StatusCode);
+
+            List<Contrato> listado = new List<Contrato>();
+            Reply oReply = new Reply();
+            RequestHelper o = new RequestHelper();
+            oReply = await o.Execute<List<Contrato>>("https://localhost:44329/api/contrato", RequestHelper.methodHttp.GET, listado);
+
+            this.dgvListadoContratos.DataSource = oReply.Data;
+            MessageBox.Show(oReply.StatusCode);
         }
 
         private void btnNuevoContrato_Click(object sender, EventArgs e)

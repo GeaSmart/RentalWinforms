@@ -41,9 +41,18 @@ namespace Mach
                     Observaciones = this.txtObservaciones.Text
                 };
 
-                var response = await ApiHelper.Put(id, miContrato);
+                //Reply oReply = new Reply();
+                //RequestHelper o = new RequestHelper();
+                //oReply = await o.Execute<Contrato>($"https://localhost:44329/api/contrato/{id}", RequestHelper.methodHttp.PUT, miContrato);
+                //MessageBox.Show(oReply.StatusCode);
 
-                MessageBox.Show("Contrato actualizado correctamente");
+                
+                Reply oReply = new Reply();
+                ApiHelper o = new ApiHelper();
+                oReply = await o.Execute<Contrato>($"https://localhost:44329/api/contrato/{id}", ApiHelper.methodHttp.PUT, miContrato);
+                                
+                MessageBox.Show(oReply.StatusCode);
+
             }
             else
             {

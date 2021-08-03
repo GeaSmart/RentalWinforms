@@ -74,6 +74,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\ApiHelper.cs" />
+    <Compile Include="Shared\Reply.cs" />
+    <Compile Include="Shared\RequestHelper.cs" />
     <EmbeddedResource Include="frmContratosListado.resx">
       <DependentUpon>frmContratosListado.cs</DependentUpon>
     </EmbeddedResource>
